@@ -54,3 +54,11 @@
             return query.executeUpdate();
         }
     }
+
+## Create using Jdbc template
+
+    @Override
+        public int createAPersonUsingJdbcTemplate(Person person) {
+            String sqlQuery = "insert into person(name,age,address)values(?,?,?)";
+            return jdbcTemplate.update(sqlQuery, new Object[]{person.getName(), person.getAge(), person.getAddress()});
+        }

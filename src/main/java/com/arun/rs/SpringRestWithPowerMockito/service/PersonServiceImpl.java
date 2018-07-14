@@ -18,4 +18,9 @@ public class PersonServiceImpl implements PersonService {
     public int createAPerson(Person person) {
         return personDao.createAPerson(person);
     }
+
+    @Override
+    public int createAPersonUsingJdbcTemplate(Person person) {
+        return personDao.createAPersonUsingJdbcTemplate(person);
+    }
 }

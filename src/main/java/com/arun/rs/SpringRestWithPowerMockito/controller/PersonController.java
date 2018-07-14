@@ -24,4 +24,10 @@ public class PersonController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @PostMapping("/persons/v1/person/jdbcTemplate")
+    public ResponseEntity<HttpStatus> createAPersonUsingJdbcTemplate(@RequestBody Person person) {
+        int returnValue = personService.createAPersonUsingJdbcTemplate(person);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 }

@@ -7,4 +7,6 @@ import com.arun.rs.SpringRestWithPowerMockito.model.Person;
  */
 public interface PersonDao {
     int createAPerson(Person person);
+
+    int createAPersonUsingJdbcTemplate(Person person);
 }
