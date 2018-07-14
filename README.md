@@ -62,3 +62,15 @@
             String sqlQuery = "insert into person(name,age,address)values(?,?,?)";
             return jdbcTemplate.update(sqlQuery, new Object[]{person.getName(), person.getAge(), person.getAddress()});
         }
+
+## Create using NamedParameterJDBC template
+
+        @Override
+        public int createAPersonUsingNamedParameterJdbcTemplate(Person person) {
+            String sqlQuery = "insert into person(name,age,address)values(:name,:age,:address)";
+            MapSqlParameterSource sqlParameterSource = new MapSqlParameterSource();
+            sqlParameterSource.addValue("name", person.getName());
+            sqlParameterSource.addValue("age", person.getAge());
+            sqlParameterSource.addValue("address", person.getAddress());
+            return namedParameterJdbcTemplate.update(sqlQuery, sqlParameterSource);
+        }

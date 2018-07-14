@@ -9,4 +9,6 @@ public interface PersonDao {
     int createAPerson(Person person);
 
     int createAPersonUsingJdbcTemplate(Person person);
+
+    int createAPersonUsingNamedParameterJdbcTemplate(Person person);
 }
